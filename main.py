@@ -32,11 +32,11 @@ async def root():
 async def marksApi(request: Request):
     if q := request.query_params.getlist("name"):
         return dict(
-            marks = [d["marks"] for d in filter(lambda d: d["name"] in q, mData)]
+            marks = [list(filter(lambda d: d["name"] == name, mData))[0]["marks"] for name in q]
         )
     if c := request.query_params.getlist("class"):
         return dict(
-            students = [d for d in filter(lambda d: d["class"] in c, cData["students"])]
+            students = [s for s in cData["students"] if s["class"] in c]
         )
     return cData
 
