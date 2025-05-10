@@ -22,7 +22,7 @@ cData: Dict[str, List[Dict[str, str]]] = dict(students=[])
 
 next(cReader)
 for d in cReader:
-    cData["students"].append({"studentId": d[0], "class": d[1]})
+    cData["students"].append({"studentId": int(d[0]), "class": d[1]})
 
 @app.get("/")
 async def root():
