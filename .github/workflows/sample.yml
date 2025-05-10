@@ -1,4 +1,4 @@
-name: Log ISS Location Data Daily
+name: TDS-02 Task
 
 on:
   workflow_dispatch: # Allows manual triggering
